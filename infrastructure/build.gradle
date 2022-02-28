@@ -1,0 +1,20 @@
+plugins {
+    id "org.springframework.boot"
+}
+
+dependencies {
+
+    implementation(project(":etl"))
+    implementation(project(":core-api"))
+    implementation(project(":core"))
+
+    //Spring
+    implementation "org.springframework.boot:spring-boot-starter-jersey"
+
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

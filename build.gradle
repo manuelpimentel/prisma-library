@@ -1,0 +1,34 @@
+plugins {
+    id "org.springframework.boot" version "2.2.5.RELEASE" apply false
+}
+
+apply plugin: 'java'
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:${springVersion}")
+        }
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+wrapper {
+    gradleVersion = "${gradlwWraperVersion}"
+}
+
+
+test {
+    useJUnitPlatform()
+}
